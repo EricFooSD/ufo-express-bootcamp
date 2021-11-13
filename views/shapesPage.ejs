@@ -1,0 +1,43 @@
+<html>
+  <%- include('header',{title: `List of Shapes`}); -%>
+  <h1>List of Sighting Shapes</h1>
+  <br />
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col" id="newtable">
+        <table
+          class="
+            table table-secondary table-striped table-hover table-sm
+            align-middle
+            table-responsive
+          "
+          style="text-align: center"
+        >
+          <thead class="table-dark" id="new-table-header">
+            <tr>
+              <th scope="col">Shape</th>
+              <th scope="col">Number of Sightings</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (shape in shapes) { %>
+            <tr>
+              <td><%=shape%></td>
+              <td><%=shapes[shape]%></td>
+              <td>
+                <form action="/shapes/<%= shape %>" method="GET">
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    Go to list
+                  </button>
+                </form>
+              </td>
+            </tr>
+            <% }; %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <%- include('footer'); -%>
+</html>

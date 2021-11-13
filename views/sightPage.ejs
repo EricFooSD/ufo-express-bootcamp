@@ -1,0 +1,45 @@
+<html>
+  <%- include('header',{title: `Sighting`}); -%>
+  <h1>Sighting</h1>
+  <div class="d-flex" id="block2">
+    <div class="container" id="block">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <h4>Description</h4>
+          <p><%= text %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <h4>Date & Time</h4>
+          <p><%= date_time %></p>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>City</h4>
+          <p><%= city %></p>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>State</h4>
+          <p><%= state %></p>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>Shape</h4>
+          <p><%= shape %></p>
+        </div>
+        <div class="col-md-3 col-6">
+          <h4>Duration</h4>
+          <p><%= duration %></p>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Summary</h4>
+        <p><%= summary %></p>
+      </div>
+      <div class="row">
+        <h4>Entry Created On</h4>
+        <p><%= created %> || <%= createdX %></p>
+      </div>
+    </div>
+  </div>
+  <%- include('footer'); -%>
+</html>

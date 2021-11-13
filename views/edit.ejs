@@ -1,0 +1,118 @@
+<html>
+  <%- include('header',{title: `Edit Sighting`}); -%>
+  <h1>Edit Form</h1>
+  <div class="d-flex" id="block2">
+    <form action="/sighting/<%= sighting.index %>?_method=PUT" method="POST">
+      <div class="container" id="block">
+        <div class="row">
+          <div class="col-md-12 col-12">
+            <label for="text">Description</label>
+            <div class="input-group mb-3">
+              <textarea
+                class="form-control"
+                id="entry"
+                name="text"
+                rows="6"
+                cols="50"
+              >
+<%= sighting.text %>
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-12">
+            <label for="date">Date & Time (YYYY-MM-DD HH:MM)</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="entry"
+                name="date_time"
+                value="<%= sighting.date_time %>"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-6">
+            <label for="city">City</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="entry"
+                name="city"
+                value="<%= sighting.city %>"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-6">
+            <label for="state">State</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="entry"
+                name="state"
+                value="<%= sighting.state %>"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-6">
+            <label for="shape">Shape</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="entry"
+                name="shape"
+                value="<%= sighting.shape %>"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 col-6">
+            <label for="duration">Duration</label>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                id="entry"
+                name="duration"
+                value="<%= sighting.duration %>"
+              />
+            </div>
+          </div>
+          <div class="col-md-12 col-12">
+            <label for="summary">Summary</label>
+            <div class="input-group mb-3">
+              <textarea
+                class="form-control"
+                id="entry"
+                name="summary"
+                rows="3"
+                cols="50"
+              >
+<%= sighting.summary %>
+              </textarea>
+            </div>
+          </div>
+          <div class="col-md-10 col-12">
+            <label for="duration">Entry Created On</label>
+            <div class="input-group mb-3">
+              <input
+                class="form-control"
+                id="entry"
+                name="created"
+                rows="1"
+                cols="50"
+                value="<%= sighting.created %>"
+                readonly
+                style="background-color: rgba(206, 206, 206, 0.8)"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-3">
+            <input type="submit" value="Edit" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <%- include('footer'); -%>
+</html>

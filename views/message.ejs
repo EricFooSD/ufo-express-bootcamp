@@ -1,0 +1,15 @@
+<html>
+  <%- include('header',{title: `Message`}); -%>
+  <div class="container">
+    <div
+      class="d-flex flex-row justify-content-center align-items-center"
+      style="height: 70vh"
+    >
+      <div class="col-8 col-md-6">
+        <h2 id="block"><%= message %></h2>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer'); -%>
+</html>

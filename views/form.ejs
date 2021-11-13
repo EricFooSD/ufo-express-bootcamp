@@ -1,0 +1,11 @@
+<html>
+  <%- include('header',{title: `Submit New Sighting`}); -%>
+    <form action="/form" method="POST">
+      <label for="label">YEAR:</label><br />
+      <input type="text" id="YEAR" name="YEAR" /><br />
+      <label for="ingredients">SEASON:</label><br />
+      <input type="text" id="SEASON" name="SEASON" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  <%- include('footer'); -%>
+</html>

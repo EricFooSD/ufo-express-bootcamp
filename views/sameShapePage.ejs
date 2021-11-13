@@ -1,0 +1,64 @@
+<html>
+  <%- include('header',{title: `List of ${requestedShape}`}); -%>
+  <h1>List of Sightings with <%= requestedShape%> shapes</h1>
+  <br />
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col" id="newtable">
+        <table
+          class="
+            table table-secondary table-striped table-hover table-sm
+            align-middle
+            table-responsive
+          "
+          style="text-align: center"
+        >
+          <thead class="table-dark" id="new-table-header">
+            <tr>
+              <th scope="col">Date & Time</th>
+              <th scope="col">State</th>
+              <th scope="col">Shape</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < sightings.length; i+=1) { %>
+            <tr>
+              <td><%=sightings[i].date_time%></td>
+              <td><%=sightings[i].state%></td>
+              <td><%=sightings[i].shape%></td>
+              <td>
+                <form action="/sighting/<%= sightings[i].index %>" method="GET">
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    View
+                  </button>
+                </form>
+                <form
+                  action="/sighting/<%= sightings[i].index %>/edit"
+                  method="GET"
+                >
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    Edit
+                  </button>
+                </form>
+              </td>
+              <td>
+                <form
+                  action="/sighting/<%= sightings[i].index %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+            <% }; %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <%- include('footer'); -%>
+</html>

@@ -1,0 +1,113 @@
+<html>
+  <%- include('header',{title: `All Sightings`}); -%>
+  <h1>UFO Sightings</h1>
+  <br />
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-9 col-sm-9 col-md-6 col-lg-3">
+        <div class="card text-white bg-dark">
+          <div
+            class="card-header"
+            style="
+              text-align: center;
+              font-family: 'Special Elite', cursive;
+              font-weight: bolder;
+            "
+          >
+            Hello Comrade
+            <img src="/images/alien.png" alt="" width="40" height="40" />
+          </div>
+          <div
+            class="card-body"
+            style="
+              text-align: center;
+              font-family: 'Special Elite', cursive;
+              font-weight: bolder;
+            "
+          >
+            <p>This is your <%= visits %> visit</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col" id="sort">
+        <form id="sort">
+          <select class="form-select" name="sortby" id="sort-options">
+            <option selected>Sort by</option>
+            <option value="date">Date & Time</option>
+            <option value="state">State</option>
+            <option value="shape">Shape</option>
+          </select>
+          <div class="d-grid gap-2">
+            <button class="btn btn-dark" input type="submit" id="sort-button">
+              Sort
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col" id="newtable">
+        <table
+          class="
+            table table-secondary table-striped table-hover table-sm
+            align-middle
+            table-responsive
+          "
+          style="text-align: center"
+        >
+          <thead class="table-dark" id="new-table-header">
+            <tr>
+              <th scope="col">Date & Time</th>
+              <th scope="col">State</th>
+              <th scope="col">Shape</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < sightings.length; i+=1) { %>
+            <tr>
+              <td><%=sightings[i].date_time%></td>
+              <td><%=sightings[i].state%></td>
+              <td>
+                <a href="/shapes/<%= sightings[i].shape %>"
+                  ><%=sightings[i].shape%></a
+                >
+              </td>
+              <td>
+                <form action="/sighting/<%= sightings[i].index %>" method="GET">
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    View
+                  </button>
+                </form>
+                <form
+                  action="/sighting/<%= sightings[i].index %>/edit"
+                  method="GET"
+                >
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    Edit
+                  </button>
+                </form>
+              </td>
+              <td>
+                <form
+                  action="/sighting/<%= sightings[i].index %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button type="submit" class="btn btn-outline-dark btn-sm">
+                    Delete
+                  </button>
+                </form>
+              </td>
+            </tr>
+            <% }; %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer'); -%>
+</html>
