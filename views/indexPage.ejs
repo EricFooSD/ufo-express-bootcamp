@@ -71,11 +71,7 @@
             <tr>
               <td><%=sightings[i].date_time%></td>
               <td><%=sightings[i].state%></td>
-              <td>
-                <a href="/shapes/<%= sightings[i].shape %>"
-                  ><%=sightings[i].shape%></a
-                >
-              </td>
+              <td><%=sightings[i].shape%></td>
               <td>
                 <form action="/sighting/<%= sightings[i].index %>" method="GET">
                   <button type="submit" class="btn btn-outline-dark btn-sm">
